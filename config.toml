@@ -2,7 +2,7 @@ baseURL = "/"
 languageCode = "en-us"
 title = "Navy Merianda"
 theme = ""
-disqusShortname = "username" # delete this to disable disqus comments
+disqusShortname = "navymerianda" # delete this to disable disqus comments
 googleAnalytics = "UA-122105448-1"
 
 [params]
