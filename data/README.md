@@ -1,2 +1,0 @@
-# tech-blog
-Personal Blog.
