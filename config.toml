@@ -18,6 +18,7 @@ googleAnalytics = "UA-122105448-1"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
     profilePic = ""
     favicon = "images/icon.png"
+    css = "static/css/main.css"
 
 [taxonomies]
   tag = "tags"
