@@ -2,7 +2,7 @@
 
 <main>
 
-    <h3>{{ .Title }}</h3>
+    <h2>{{ .Title }}</h2>
 
     {{ range (.Paginator 10).Pages }} {{ partial "list-item" . }} {{ end }}
 
