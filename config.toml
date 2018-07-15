@@ -4,6 +4,8 @@ title = "Navy Merianda"
 theme = ""
 disqusShortname = "navymerianda" # delete this to disable disqus comments
 googleAnalytics = "UA-122105448-1"
+enableRobotsTXT = true
+canonifyURLs = true
 
 [params]
     author = "Navy Merianda"
