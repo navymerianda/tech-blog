@@ -4,7 +4,19 @@
 
     <h2>{{ .Title }}</h2>
 
-    {{ range (.Paginator 10).Pages }} {{ partial "list-item" . }} {{ end }}
+    <ul class="terms">
+        {{ range $key, $value := .Data.Terms }}
+        <li>
+          <a href='{{ (print "/" $.Data.Plural "/" $key) | relURL }}'>
+            {{ $key }}
+          </a>
+          ({{ len $value }})
+        </li>
+        {{ end }}
+    </ul>
+
+
+    
 
 </main>
 

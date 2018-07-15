@@ -78,6 +78,13 @@ a:hover {
     background-color: var(--accent);
 }
 
+.terms {
+    margin: 10px;
+    padding: 10px;
+    list-style-type: none;
+    font-size: 18px;
+}
+
 /*navigation bar icons*/
 
 .navbar-icon {
