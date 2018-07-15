@@ -11,7 +11,7 @@ Azure Service Bus is a robust cloud-based scalable messaging system provided by 
 > - Topics
 > - Relays
 
-Queue
+Queues
 -------------
 A message queue provides an asynchronous mechanism to exchange messages between services. It implies that the producer of the message and the consumer of the message can send messages asynchronously without them having to be online at the same time. Messages can be sent from multiple sources based on the needs of the service. As it's a robust system, you don't have to worry about the message getting lost in any situation. Messages stay safe in the system until the receivers have processed the same. In case of the Queue, there's only one receiver at the other end. 
 
@@ -53,7 +53,7 @@ Dead Lettering:
 ----
 `This parameter can be enabled if you wish to keep track of the messages that have not been delivered to the consumer or have failed in the process.` Although, you don't have to maintain or create anything special for this, it's like a secondary queue for storing messages that failed for some reason. There's no `TimeToLive` duration being observed for these messages, they stay in the Dead Letter Queue for as long as you don't delete them from it explicitly. You will also find all the expired messages and messages that have exceeded the MaxDeliveryCount in this Queue.
 
-Session
+Session:
 ----
 `Service bus sessions help to determine a sequence of messages that are part of a certain batch in the Queue.` We can enable this parameter at the time of Queue creation or even at a later point in time. Programmatically, we will be able to set a SessionId for a certain set of messages and can be handled in a different way at the consumer end. This also helps the consumer to hold an exclusive lock on all the messages that pertain to this SessionId and these aren't tied to any session expiration.
 

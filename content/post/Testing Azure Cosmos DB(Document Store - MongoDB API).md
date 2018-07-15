@@ -1,7 +1,7 @@
 ---
 title: "Testing Azure Cosmos DB(Document Store - MongoDB API)"
 date: 2018-07-09
-tags: ["go", "golang", "hugo", "jekyll", "static-site-generator"]
+tags: ["mongo", "azure"]
 draft: false
 ---
 

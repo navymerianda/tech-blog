@@ -1,7 +1,7 @@
 ---
 title: "Azure Cosmos DB!"
 date: 2018-07-09
-tags: ["go", "golang", "hugo", "development"]
+tags: ["azure", "cloud", "development"]
 draft: false
 ---
 
