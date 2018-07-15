@@ -17,7 +17,7 @@ googleAnalytics = "UA-122105448-1"
     highlightStyle = "solarized-dark"
     highlightLanguages = ["go", "haskell", "kotlin", "scala", "swift"]
     profilePic = "images/ppLogo.png"
-    favicon = "images/favico.png"
+    favicon = "images/icn.png"
 
 [taxonomies]
   tag = "tags"
