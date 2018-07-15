@@ -25,7 +25,7 @@ main {
 /*home page*/
 
 .intro {
-    transform: translateY(22vh);
+    transform: translateY(7vh);
 }
 
 .intro > h1 {
@@ -39,8 +39,8 @@ main {
 }
 
 .intro > .profile {
-    width: 25vh;
-    height: 25vh;
+    width: 30vh;
+    height: 30vh;
     border-radius: 50%;
 }
 
