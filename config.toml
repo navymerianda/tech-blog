@@ -59,10 +59,10 @@ canonifyURLs = true
     name = "github"
     weight = 2
 
-[[menu.icon]]
-    url = "https://twitter.com/username/"
-    name = "twitter"
-    weight = 3
+#[[menu.icon]]
+    #url = "https://navymerianda.com/"
+    #name = "home"
+    #weight = 3
 
 [[menu.icon]]
     url = "https://www.linkedin.com/in/username/"
@@ -73,3 +73,4 @@ canonifyURLs = true
     url = "https://www.stackoverflow.com/username/"
     name = "stack-overflow"
     weight = 5
+
