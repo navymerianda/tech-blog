@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus - (Topics & Relays)!"
+title: "Azure Service Bus - (Topics & Relays)"
 date: 2018-07-16
 tags: ["azure", "cloud", "development", "topic", "relays", "service bus"]
 draft: false
