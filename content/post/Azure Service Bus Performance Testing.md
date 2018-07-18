@@ -1,5 +1,5 @@
 ---
-title: "Azure Service Bus Performance Testing "
+title: "Azure Service Bus Performance Testing"
 date: 2018-07-09
 tags: ["azure", "service", "bus", "cloud", "python", "performance", "testing"]
 draft: false
@@ -32,7 +32,7 @@ import sys, asyncio, json, datetime
 Initiate Azure Service Bus connection:
 ```
 bus_service = ServiceBusService(
-			  service_namespace='TestBus',
+			        service_namespace='TestBus',
               shared_access_key_name='your_key',
               shared_access_key_value='your_val')  
 ```
