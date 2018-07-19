@@ -175,4 +175,166 @@ def ClearUpASBQueue():
     print(str(currentStamp.now().time().replace(microsecond=0)) + ": All Events From The Queue Deleted! Queue is Empty Now!")
 
 main()
+
 ```
+
+###Test 4 - Minimum Capacity Threshold Of The Queue
+
+For the most part, code remains the same as above with respect to the imports and initial parameters. Minimum capacity threshold will vary for you depending on your requirements. We had a `minimum cap of around 8.6 million records(equivalent to 11.3 GB in size)` to be stored.
+
+```
+#QueueName
+currentQueue = "testQueue"
+
+#Entry point to the script
+def main():
+    try:    
+        #Sample Event to be sent to the Queue.
+        event = Message(json.dumps(SampleEvent().__dict__))
+
+        #Size in bytes, so we'll need to convert it to GB by dividing it by a billion.
+        filledQueueSize = (bus_service.get_queue(currentQueue).size_in_bytes)/1000000000
+
+        ClearUpASBQueue()
+
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Minimum ASB Queue Size Threshold To Be Achieved - 11.3 GB (8,640,000 events)")           
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Currently Used ASB Queue Size(GB) - " + str(format(filledQueueSize, '.2f')))
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Adding more events in the Queue to reach ASB Queue Size for minimal survival threshold!")
+        
+        LogEventToFillUpASBToMinThreshold(event)
+
+    except Exception as exception:
+        print(exception)
+```
+
+Method to log events to a minimum threshold limit stated above.
+
+```
+#Log a batch of events to the service bus Queue asynchronously.
+#Currently set the batch limit to 200.
+#Log events up to 11.3 GB.
+def LogEventToFillUpASBToMinThreshold(event):
+    global countOfEvents
+    allEvents = BuildEventsInBatch(event)
+    asyncEventLoop = asyncio.get_event_loop()
+    allEventTasks = []
+
+    for batchCount in range(45000):
+        #start = time.time()
+        msgTask = asyncio.ensure_future(LogEventsToQueue(allEvents))
+        allEventTasks.append(msgTask)
+        #end = time.time()
+    
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Logging Events..Please Wait.. ")
+    asyncEventLoop.run_until_complete(asyncio.wait(allEventTasks))
+    countOfEvents = 0
+```
+
+LogEventsToTheQueue remains the same as the previous tests. Here, there's an additional method to actually `track the progress of the records` being inserted to the Queue.
+
+```
+#Async Logging of events to ASB.
+async def LogEventsToQueue(allMessages):
+    try:
+        global countOfEvents
+        countOfEvents += len(allMessages)
+        bus_service.send_queue_message_batch(currentQueue, allMessages)
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Events Logged : " + str(countOfEvents)
+                + ", Progress% - " +  ReportProgress())
+
+    except Exception as exception:
+        exceptionMessage = str(exception)
+        if "Request Entity Too Large" in exceptionMessage:
+            print(str(currentStamp.now().time().replace(microsecond=0)) + ": Please check the event size and try again!")
+            print(exception)
+            sys.exit()
+        else:
+            print(exceptionMessage)
+
+#Responsible for reporting progress of the process.
+def ReportProgress():
+    currentEventsCount = bus_service.get_queue(currentQueue).message_count
+    eventsMaxLimit = 8640000
+    if currentEventsCount > eventsMaxLimit:
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Minimum events survival ASB Queue Size threshold Reached!")
+        sys.exit()
+    
+    else:
+        return str(format((currentEventsCount / eventsMaxLimit) * 100, '.3f'))
+```
+
+I must admit, it takes quite a while for this particular test to complete as the APIs made available by the SDK are all `REST APIs.`
+
+
+###Test 5 - Maximum Capacity Of The Queue
+
+In this particular test, we were looking to test for about `11.3 million events`, which would test the maximum limit of the Queue at `16 GB in storage size`. Code mostly remains the same other than the limit factor bound to this test.
+
+```
+#QueueName
+currentQueue = "testQueue"
+
+#Entry point to the script
+def main():
+    try:
+        ClearUpASBQueue()
+
+        CheckForMaximumASBCapacity()
+
+    except Exception as exception:
+        print(exception)
+
+
+#Log a batch of events to the service bus Queue asynchronously.
+#Fill up the ASB.
+#Currently set the batch limit to 200.
+#Log events up to 11.3 million.
+def LogEventToFillUpASBToMaxCapacity(event):
+    global countOfEvents
+    allEvents = BuildEventsInBatch(event)
+    asyncEventLoop = asyncio.get_event_loop()
+    allEventTasks = []
+
+    for batchCount in range(70000):
+        #start = time.time()
+        msgTask = asyncio.ensure_future(LogEventsToQueue(allEvents))
+        allEventTasks.append(msgTask)
+        #end = time.time()
+    
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Logging Events..Please Wait.. ")
+    asyncEventLoop.run_until_complete(asyncio.wait(allEventTasks))
+    countOfEvents = 0
+
+#Check for maximum ASB capacity. In our case, 16 GB memory space.
+def CheckForMaximumASBCapacity():
+    #Sample Event to be sent to the Queue.
+    event = Message(json.dumps(SampleEvent().__dict__))
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Checking for total filled ASB Queue size...")
+    #Size in bytes, so we'll need to convert it to GB by dividing it by a billion.
+    occupiedQueueSize = (bus_service.get_queue(currentQueue).size_in_bytes)/1000000000
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Total ASB Queue Size To Be Achieved - 16 GB (12,236,374 events)")
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Currently Used ASB Queue Size(GB) - " + str(format(occupiedQueueSize, '.2f')))
+  
+    print(str(currentStamp.now().time().replace(microsecond=0)) + ": Maximum ASB Capacity for Storing Events Not Reached Yet!Logging More Events To Fill Max Capacity now...")
+    LogEventToFillUpASBToMaxCapacity(event)
+    
+```
+
+`ReportProgress method changes the maximum limit` value to handle a higher limit for this test.
+
+```
+
+#Responsible for reporting progress of the process.
+def ReportProgress():
+    currentEventsCount = bus_service.get_queue(currentQueue).message_count
+    eventsMaxLimit = 12236374
+    if currentEventsCount > eventsMaxLimit:
+        print(str(currentStamp.now().time().replace(microsecond=0)) + ": Maximum ASB Capacity for Storing Events Reached!")
+        sys.exit()
+    
+    else:
+        return str(format((currentEventsCount / eventsMaxLimit) * 100, '.3f'))
+
+```
+
+
