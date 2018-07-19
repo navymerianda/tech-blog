@@ -178,7 +178,7 @@ main()
 
 ```
 
-###Test 4 - Minimum Capacity Threshold Of The Queue
+### Test 4 - Minimum Capacity Threshold Of The Queue
 
 For the most part, code remains the same as above with respect to the imports and initial parameters. Minimum capacity threshold will vary for you depending on your requirements. We had a `minimum cap of around 8.6 million records(equivalent to 11.3 GB in size)` to be stored.
 
@@ -266,7 +266,7 @@ def ReportProgress():
 I must admit, it takes quite a while for this particular test to complete as the APIs made available by the SDK are all `REST APIs.`
 
 
-###Test 5 - Maximum Capacity Of The Queue
+### Test 5 - Maximum Capacity Of The Queue
 
 In this particular test, we were looking to test for about `11.3 million events`, which would test the maximum limit of the Queue at `16 GB in storage size`. Code mostly remains the same other than the limit factor bound to this test.
 
