@@ -33,8 +33,8 @@ Initiate Azure Service Bus connection:
 ```
 bus_service = ServiceBusService(
 			        service_namespace='TestBus',
-              shared_access_key_name='your_key',
-              shared_access_key_value='your_val')  
+                    shared_access_key_name='your_key',
+                    shared_access_key_value='your_val')  
 ```
 You can use datetime module to track time taken to create and delete queues.
 
