@@ -1,6 +1,6 @@
 ---
 title: "Testing Azure Cosmos DB(Document Store - MongoDB API)"
-date: 2018-07-18
+date: 2018-07-20
 tags: ["mongo", "azure", "cosmos", "database"]
 draft: false
 ---
