@@ -5,14 +5,16 @@ tags: ["double", "array", "javascript", "es6", "js"]
 draft: false
 ---
 
-## Double Array In Javascript
+Double Array In Javascript
+------
 
 Here's a fun question to test your JS skills:
 
 Given an array of numbers, you'll have to `double the array.`
 Example: given [5,6,7,8,9], your function should return [5,6,7,8,9,5,6,7,8,9].
 
-#### Approach 1:
+Approach 1:
+-----
 
 ```
 
@@ -26,9 +28,11 @@ console.log(array);
 ```
 
 Do you see a pitfall here?
+
 This ends up running in an `infinite loop`. You're using the same array length after pushing the elements into the array, resulting in an infinite loop.
 
-#### Approach 2:
+Approach 2:
+-----
 
 ```
 
@@ -44,7 +48,8 @@ console.log(array);
 
 This ends up running fine as you're taking the `array length` before iterating the array and value of the length variable stays the same.
 
-#### Approach 3:
+Approach 3:
+-----
 
 ```
 
@@ -64,7 +69,8 @@ console.log(array.double())
 
 You can make use of `Javascript prototype chain` and use it essentially more on the lines of an extension method without having to pass anything to the function. We have access to the array that the method is being called on with this.
 
-### Approach 4:
+Approach 4:
+-----
 
 ```
 
