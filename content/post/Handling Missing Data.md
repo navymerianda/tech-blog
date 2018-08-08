@@ -6,7 +6,7 @@ draft: false
 ---
 Please make sure to check out the setup article titled 'World of Data Science' before moving onto this.
 
-When dealing with data, there are various ways to go about handling it. Today, we'll look at using the mean of the set/column data to fill up unknown/missing data.
+When dealing with data, there are various ways to go about handling it. Today, we'll look at using the `mean of the set/column data to fill up unknown/missing data.`
 
 
 ![Data Table](https://navymerianda.com/images/Dataset.png)
@@ -31,7 +31,7 @@ imputer = imputer.fit(independentVars[:, 1:3])
 independentVars[:, 1:3] = imputer.transform(independentVars[:, 1:3])
 ```
 
-Spyder 3.2.8 doesn't support viewing object arrays in the variable explorer. In order to view the calculated mean values, we'll need to print(independentVars) in the IPythonConsole section at the bottom right window. You will find the resultant set as below.
+Spyder 3.2.8 `doesn't support viewing object arrays` in the variable explorer. In order to view the calculated mean values, we'll need to `print(independentVars)` in the IPythonConsole section at the bottom right window. You will find the resultant set as below.
 
 ```
  print(independentVars)
@@ -59,4 +59,4 @@ dataset$Salary = ifelse(is.na(dataset$Salary),
                         dataset$Salary)
 ```
 
-From the above code, we can see that, we are first trying to identify cells that have NA/missing values, so when a cell with missing value is found, we simply replace it with the mean of the entire column in place, else retain the actual salary. If you set na.rm to FALSE, you'll not see the mean resultant change in the actual dataset for the missing value cell.
+From the above code, we can see that, we are first trying to identify cells that have NA/missing values, so when a cell with missing value is found, we simply replace it with the mean of the entire column in place, else retain the actual salary. If you set `na.rm to FALSE`, you'll not see the mean resultant change in the actual dataset for the missing value cell.
