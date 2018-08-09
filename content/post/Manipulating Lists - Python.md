@@ -1,7 +1,7 @@
 ---
 title: "Manipulating Lists - Python"
 date: 2018-07-28
-tags: ["copy", "python", "deep copy", "shallow copy"]
+tags: ["copy", "python", "deep copy", "shallow copy", "list"]
 draft: false
 ---
 
