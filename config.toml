@@ -7,13 +7,6 @@ googleAnalytics = "UA-122105448-1"
 enableRobotsTXT = true
 canonifyURLs = true
 
-
-[[redirects]]
-  from = "/*"
-  to = "https://navymerianda.com/post/"
-  status = 200
-  force = true
-  headers = {X-From = "Netlify"}
   
 [params]
     author = "Navy Merianda"
