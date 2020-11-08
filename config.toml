@@ -9,7 +9,7 @@ canonifyURLs = true
 
 
 [[redirects]]
-  from = "/"
+  from = "/*"
   to = "https://navymerianda.com/post/"
   status = 200
   force = true
