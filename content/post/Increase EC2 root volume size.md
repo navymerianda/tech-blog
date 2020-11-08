@@ -16,7 +16,7 @@ Once the snapshot is ready, make sure to stop the running EC2 instance before th
 
 Here are the steps:
 
-![Test Instance Initial](https://navymerianda.com/images/Test-Instance-Initial.jpg)
+![Test Instance Initial](https://navymerianda.com/images/Test-Instance-Initial.png)
 
 ![Stop Instance](https://navymerianda.com/images/Stop-Instance.jpg)
 
