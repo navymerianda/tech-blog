@@ -16,35 +16,35 @@ Once the snapshot is ready, make sure to stop the running EC2 instance before th
 
 Here are the steps:
 
-1. Screenshot of the instance which we are going to resize.
+* Screenshot of the instance which we are going to resize.
 
 ![Test Instance Initial](https://navymerianda.com/images/Test-Instance-Initial.png)
 
-2. Make sure to stop the instance before going further.
+* Make sure to stop the instance before going further.
 
 ![Stop Instance](https://navymerianda.com/images/Stop-Instance.jpg)
 
-3. Detach the volume.
+* Detach the volume.
 
 ![Detach Vol](https://navymerianda.com/images/Detach-Vol.jpg)
 
-4. Modify the volume to your desired capacity.
+* Modify the volume to your desired capacity.
 
 ![Modify Vol](https://navymerianda.com/images/Modify-Vol.jpg)
 
-5. Process of modifying the volume is time consuming depending on the size of your volume, please be patient through the process.
+* Process of modifying the volume is time consuming depending on the size of your volume, please be patient through the process.
 
 ![Modifying Vol](https://navymerianda.com/images/Processing-Modify-Vol.jpg)
 
-6. Re-attach volume the EC2 instance.
+* Re-attach volume the EC2 instance.
 
 ![Attach Vol](https://navymerianda.com/images/Attach-Vol.jpg)
 
-7. Screenshot of the volume post resize.
+* Screenshot of the volume post resize.
 
-![Post Resize Vol](https://navymerianda.com/images/Post-Resizing.jpg)
+![Post Resize Vol](https://navymerianda.com/images/Post-Resizing.png)
 
-8. List of mount types of all our volumes.
+* List of mount types of all our volumes.
 
 ![Mount Types List](https://navymerianda.com/images/Mount-Types-Post.jpg)
 
