@@ -1,4 +1,4 @@
-baseURL = "https://navymerianda.com/"
+baseURL = "https://navymerianda.com/post/"
 languageCode = "en-us"
 title = "Navy Merianda"
 theme = ""
@@ -9,7 +9,7 @@ canonifyURLs = true
 
 [params]
     author = "Navy Merianda"
-    description = "Developer. Gamer. Tech Enthusiast."
+    description = "Developer. Photographer. Tech Enthusiast."
     githubUsername = "#"
     accent = "red"
     showBorder = true
@@ -50,7 +50,7 @@ canonifyURLs = true
 # The list of available icons can be found at http://fontawesome.io/icons/
 
 [[menu.icon]]
-    url = "mailto:navychandra29@gmail.com"
+    url = "mailto:navymerianda@gmail.com"
     name = "envelope-o"
     weight = 1
 
