@@ -36,7 +36,7 @@ Here are the steps:
 
 ![Modifying Vol](https://navymerianda.com/images/Processing-Modify-Vol.jpg)
 
-* Re-attach volume the EC2 instance.
+* Re-attach volume to the EC2 instance.
 
 ![Attach Vol](https://navymerianda.com/images/Attach-Vol.jpg)
 
@@ -58,3 +58,25 @@ We will need to create a new volume by providing a snapshot id of the volume you
 Once the volume is created, you will be required to detach an older volume of a smaller size and attach the new volume
 which was created with a snapshot. If all the steps were followed correctly, we should be able to see the extended size
 of your root volume.
+
+* Make sure to stop the instance before going further.
+
+![Stop Instance](https://navymerianda.com/images/Stop-Instance.jpg)
+
+* Detach the volume.
+
+![Detach Vol](https://navymerianda.com/images/Detach-Vol.jpg)
+
+* Create a snapshot of the volume you want to be resized.
+
+![Create Snapshot](https://navymerianda.com/images/Create-Snapshot.jpg)
+
+* Once the snapshot is created, we move on to creating new volume of the desired capacity from the snapshot created previously.
+
+![Snapshot Copy](https://navymerianda.com/images/Snapshot-Copy.jpg)
+
+![Snapshot Page](https://navymerianda.com/images/Create-Vol-Snapshot.jpg)
+
+* Re-attach volume to the EC2 instance.
+
+![Attach Vol](https://navymerianda.com/images/Attach-Vol.jpg)
